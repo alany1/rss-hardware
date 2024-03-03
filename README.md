@@ -26,8 +26,8 @@
 * Run the host installs script
 
 ```bash
-   * chmod +x host_installs
-   * ./host_installs
+chmod +x host_installs
+./host_installs
 ```
 
 * Connect to wifi, and pull the latest docker image:
