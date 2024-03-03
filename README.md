@@ -31,6 +31,31 @@ cd $HOME
 ./run_rostorch
 ```
 
+Inside the container, build and test if teleop works:
+
+```bash
+cd ros2_ws
+colcon build # this might take a while
+source install/setup.bash
+teleop
+```
+
+The container will launch a hanging VNC server. You can enter the docker container by opening another terminal window
+and running:
+
+```bash
+connect
+```
+
+On your local machine you can connect to the VNC server by running:
+
+```bash
+ssh -L 6081:localhost:6081 racecar@[IP] # where [IP] depends on your racecar number
+```
+
+Then, open your browser and navigate to:
+http://localhost:6081/vnc.html?resize=remote.
+
 ### Networking
 
 * Connect to racecar router
