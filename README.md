@@ -23,6 +23,9 @@
 ### Development
 
 * Clone this repo into `$HOME`.
+* Run the host installs script
+   * chmod +x host_installs
+   * ./host_installs
 * Connect to wifi, and pull the latest docker image:
 
 ```
