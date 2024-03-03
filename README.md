@@ -23,6 +23,7 @@
 ### Development
 
 * Clone this repo into `$HOME`.
+* Copy .bash_aliases into `$HOME`.
 * Run the host installs script
 
 ```bash
