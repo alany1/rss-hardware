@@ -1,2 +1,2 @@
-alias connect="docker exec -it racecar_hw bash"
-alias spinup="cd ~ &&./run_rostorch.sh"
+alias connect="sudo docker exec -it racecar_hw bash"
+alias spinup="sudo cd ~ &&./run_rostorch.sh"
