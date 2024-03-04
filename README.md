@@ -3,14 +3,14 @@
 ### Vesc Configuration
 
 * Upload default firmware
-* Upload motor config
+* Upload motor config [Link](https://github.com/RacecarJ/vesc-firmware/blob/master/VESC-Configuration/vesc6_upenn_foc.xml)
 * REMEMBER TO HIT SAVE MOTOR CONFIG
 * FOC > Senseless > Set hysteresis and time to 0.01
 * REMEMBER TO HIT SAVE MOTOR CONFIG
 * App Settings > General:
     * Enable servo output
     * REMEMBER TO HIT SAVE APP CONFIG
-* Motor Settings > PID Controller [Link](https://github.com/RacecarJ/vesc-firmware/blob/master/VESC-Configuration/vesc6_upenn_foc.xml)
+* Motor Settings > PID Controller
     * Allow braking = True
     * SAVE APP CONFIG!
 * Calibration:
@@ -22,8 +22,7 @@
 
 ### Development
 
-* Clone this repo into `$HOME`.
-* Copy .bash_aliases into `$HOME`.
+* Clone the **CONTENTS** of this repo into `$HOME`.
 * Run the host installs script
 
 ```bash
