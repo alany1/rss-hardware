@@ -1,3 +1,6 @@
+# Move bash aliases
+cp rss-hardware/.bash_aliases .
+
 # Move run_rostorch
 cp rss-hardware/run_rostorch.sh .
 chmod +x run_rostorch.sh
