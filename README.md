@@ -10,7 +10,7 @@
 * App Settings > General:
     * Enable servo output
     * REMEMBER TO HIT SAVE APP CONFIG
-* Motor Settings > PID Controller
+* Motor Settings > PID Controller [Link](https://github.com/RacecarJ/vesc-firmware/blob/master/VESC-Configuration/vesc6_upenn_foc.xml)
     * Allow braking = True
     * SAVE APP CONFIG!
 * Calibration:
