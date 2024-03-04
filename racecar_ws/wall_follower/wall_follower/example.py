@@ -8,13 +8,16 @@ class ExampleNode(Node):
 
     def __init__(self):
         super().__init__('example_node')
-        # self.publisher_ = self.create_publisher(AckermannDriveStamped, '/vesc/ackermann_cmd_mux/input/navigation', 10)
+        # topic_name = "/vesc/high_level/input/nav_0"
+        # topic_name = "/vesc/high_level/input/nav_1"
+        topic_name = "/vesc/high_level/input/nav_2"
+        print(topic_name)
+        self.publisher_ = self.create_publisher(AckermannDriveStamped, topic_name, 10)
         # self.publisher_ = self.create_publisher(AckermannDriveStamped, '/vesc/high_level/ackermann_cmd_mux/input/nav_0',
         #                                        10)
         # self.publisher_ = self.create_publisher(AckermannDriveStamped, '/vesc/low_level/ackermann_cmd', 10)
-        self.publisher_ = self.create_publisher(AckermannDriveStamped, '/vesc/high_level/input/nav_0', 10)
-        # self.publisher_ = self.create_publisher(AckermannDriveStamped, '/vesc/input/navigation', 10)
-        self.timer = self.create_timer(0.5, self.timer_callback)
+        # self.publisher_ = self.create_publisher(AckermannDriveStamped, '/vesc/high_level/input/nav_0', 10)
+        self.timer = self.create_timer(0.05, self.timer_callback)
 
     def timer_callback(self):
         """

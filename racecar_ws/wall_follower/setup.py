@@ -20,7 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            "example=wall_follower.example:main"
+            "example=wall_follower.example:main",
+            "safety_example=wall_follower.safety:main"
         ],
     },
 )
