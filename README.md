@@ -33,7 +33,7 @@ chmod +x host_installs
 * Connect to wifi, and pull the latest docker image:
 
 ```
-[sudo] docker pull sebagarc/hardwareros2-production
+[sudo] docker pull staffmitrss/racecar-real:latest
 cd $HOME
 ./run_rostorch
 ```
@@ -62,6 +62,8 @@ ssh -L 6081:localhost:6081 racecar@[IP] # where [IP] depends on your racecar num
 
 Then, open your browser and navigate to:
 http://localhost:6081/vnc.html?resize=remote.
+
+Verify that you can visualize the LiDAR (frame laser, topic `/scan`) and camera.
 
 ### Networking
 
