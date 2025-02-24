@@ -6,11 +6,12 @@ cp rss-hardware/run_rostorch.sh .
 chmod +x run_rostorch.sh
 
 # Move entry point
-cp rss-hardware/racecar_ws/entrypoint.sh .
+cp rss-hardware/entrypoint.sh .
 chmod +x entrypoint.sh
+
+cp -r rss-hardware/racecar_ws .
 
 # install host installs
 source rss-hardware/host_installs.sh
 
-# pull docker and run rostorch
-source run_rostorch.sh
+cd
