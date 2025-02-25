@@ -3,7 +3,7 @@
 ### 0. Host Installations
 
 * Clone this repo into $HOME.
-* Connect to wifi, and pull the latest docker image:
+* Connect to wifi (Ethernet preferred), and pull the latest docker image:
 
 ```
 [sudo] docker pull staffmitrss/racecar-real:latest
@@ -71,20 +71,13 @@ chmod +x install.sh
 ./run_rostorch.sh
 ```
 
-* Inside the container, build and test if teleop works:
-
-```bash
-cd ros2_ws
-colcon build # this might take a while
-source install/setup.bash
-teleop
-```
-
-* The container will launch a hanging VNC server. You can enter the docker container by opening another terminal window
-and running:
+* Inside the container, build and test if teleop works. You'll need to start another terminal:
 
 ```bash
 connect
+
+# now you are inside the docker
+teleop
 ```
 
 * On your local machine you can connect to the VNC server by running:
@@ -97,3 +90,15 @@ Then, open your browser and navigate to:
 http://localhost:6081/vnc.html?resize=remote.
 
 Verify that you can visualize the LiDAR (frame laser, topic `/scan`) and camera.
+
+* Optional: verify that the starter wall follower package works.
+```bash
+# inside the docker
+cd /root/racecar_ws
+colcon build
+source install/setup.bash
+
+ros2 run wall_follower example
+```
+
+If you hit the right bumper, it should go in a circle.
