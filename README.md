@@ -55,6 +55,7 @@ chmod +x install.sh
         * Netmask : 24
         * Gateway: 192.168.0.10
     * Save
+* Configure static IP on router
 * Delete all WIFI connections besides the designated router
   * Set up the router if you need (using reserved IP DHCP table)
 * Open Terminal
