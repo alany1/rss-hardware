@@ -2,6 +2,7 @@
 
 ### 0. Host Installations
 
+* If you're on the TX2, get rid of the old stuff so that only the minimal envioronment is there. For example, `racecar_ws`, bash scripts, and stray files should be cleaned up.
 * Clone this repo into $HOME.
 * Connect to wifi (Ethernet preferred), and pull the latest docker image:
 
