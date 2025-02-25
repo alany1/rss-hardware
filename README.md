@@ -1,5 +1,28 @@
 # Racecar Setup Guide
 
+### 0. Host Installations
+
+* Clone this repo into $HOME.
+* Connect to wifi, and pull the latest docker image:
+
+```
+[sudo] docker pull staffmitrss/racecar-real:latest
+```
+* Alternatively, use the flash drive and do:
+
+```python
+docker load -i /path/to/external/drive/image.tar
+```
+
+* Run install script from outside the repo.
+
+```bash
+mv install.sh $HOME
+chmod +x install.sh
+./install.sh
+```
+
+
 ### 1. Vesc Configuration
 
 * Upload default firmware
@@ -41,26 +64,8 @@
     * 192.168.0.10 hokuyo
 
 
-### 3. Development
+### 3. Docker
 
-* Connect to wifi, and pull the latest docker image:
-
-```
-[sudo] docker pull staffmitrss/racecar-real:latest
-```
-* Alternatively, use the flash drive and do:
-
-```python
-docker load -i /path/to/external/drive/image.tar
-```
-
-* Run install script from outside the repo.
-
-```bash
-mv install.sh $HOME
-chmod +x install.sh
-./install.sh
-```
 * Run the container
 ```bash
 ./run_rostorch.sh
