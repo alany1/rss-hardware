@@ -1,6 +1,29 @@
 # Racecar Setup Guide
 
-### Vesc Configuration
+### 0. Host Installations
+
+* Clone this repo into $HOME.
+* Connect to wifi (Ethernet preferred), and pull the latest docker image:
+
+```
+[sudo] docker pull staffmitrss/racecar-real:latest
+```
+* Alternatively, use the flash drive and do:
+
+```python
+docker load -i /path/to/external/drive/image.tar
+```
+
+* Run install script from outside the repo.
+
+```bash
+mv install.sh $HOME
+chmod +x install.sh
+./install.sh
+```
+
+
+### 1. Vesc Configuration
 
 * Upload default firmware
 * Upload motor config [Link](https://github.com/RacecarJ/vesc-firmware/blob/master/VESC-Configuration/vesc6_upenn_foc.xml)
@@ -20,50 +43,7 @@
     * App Settings > General > Controls
         * Try moving the servo
 
-### Development
-
-* Clone the **CONTENTS** of this repo into `$HOME`.
-* Run the host installs script
-
-```bash
-chmod +x host_installs
-./host_installs
-```
-
-* Connect to wifi, and pull the latest docker image:
-
-```
-[sudo] docker pull sebagarc/hardwareros2-production
-cd $HOME
-./run_rostorch
-```
-
-Inside the container, build and test if teleop works:
-
-```bash
-cd ros2_ws
-colcon build # this might take a while
-source install/setup.bash
-teleop
-```
-
-The container will launch a hanging VNC server. You can enter the docker container by opening another terminal window
-and running:
-
-```bash
-connect
-```
-
-On your local machine you can connect to the VNC server by running:
-
-```bash
-ssh -L 6081:localhost:6081 racecar@[IP] # where [IP] depends on your racecar number
-```
-
-Then, open your browser and navigate to:
-http://localhost:6081/vnc.html?resize=remote.
-
-### Networking
+### 2. Networking
 
 * Connect to racecar router
 * Open Network Connections
@@ -75,8 +55,50 @@ http://localhost:6081/vnc.html?resize=remote.
         * Netmask : 24
         * Gateway: 192.168.0.10
     * Save
+* Delete all WIFI connections besides the designated router
+  * Set up the router if you need (using reserved IP DHCP table)
 * Open Terminal
 * sudo vim /etc/hosts
 * Add the following hosts:
     * 192.168.1.[car number]   racecar
     * 192.168.0.10 hokuyo
+
+
+### 3. Docker
+
+* Run the container
+```bash
+./run_rostorch.sh
+```
+
+* Inside the container, build and test if teleop works. You'll need to start another terminal:
+
+```bash
+connect
+
+# now you are inside the docker
+teleop
+```
+
+* On your local machine you can connect to the VNC server by running:
+
+```bash
+ssh -L 6081:localhost:6081 racecar@[IP] # where [IP] depends on your racecar number
+```
+
+Then, open your browser and navigate to:
+http://localhost:6081/vnc.html?resize=remote.
+
+Verify that you can visualize the LiDAR (frame laser, topic `/scan`) and camera.
+
+* Optional: verify that the starter wall follower package works.
+```bash
+# inside the docker
+cd /root/racecar_ws
+colcon build
+source install/setup.bash
+
+ros2 run wall_follower example
+```
+
+If you hit the right bumper, it should go in a circle.
